@@ -87,15 +87,19 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// --- Preload: add all products then immediately remove them ---
-// This forces SBL to fetch product data so we can populate the UI
+// --- Preload: add all products to fetch descriptions, then reset cart ---
+var _preloadDone = false;
 function preloadAllProducts() {
   if (typeof fastspring === 'undefined' || !fastspring.builder || !fastspring.builder.push) {
     setTimeout(preloadAllProducts, 300);
     return;
   }
-  // Add all products at once via push
   var session = { items: ALL_PRODUCTS.map(function(p) { return { product: p, quantity: 1 }; }) };
   fastspring.builder.push(session);
+  // Reset cart after descriptions are captured
+  setTimeout(function() {
+    _preloadDone = true;
+    fastspring.builder.reset();
+  }, 1500);
 }
 preloadAllProducts();
