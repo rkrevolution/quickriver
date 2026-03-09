@@ -33,12 +33,13 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 20px 0;
 }
 
 /* ---- PHONE FRAME ---- */
 .game-container {
   width: 390px;
-  height: 720px;
+  height: min(720px, calc(100vh - 40px));
   background: var(--bg-mid);
   border-radius: 20px;
   border: 3px solid #333;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>QuickRiver</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d0d1a;
+      color: #eaf2f8;
+      font-family: 'VT323', monospace;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    .screen {
+      width: 390px;
+      height: min(720px, calc(100vh - 40px));
+      background: linear-gradient(180deg, #0a1628 0%, #16213e 40%, #0077b6 100%);
+      border-radius: 20px;
+      border: 3px solid #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 28px;
+      box-shadow: 0 0 40px rgba(0, 180, 216, 0.15), 0 0 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Water shimmer at bottom */
+    .screen::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, rgba(0, 180, 216, 0.1));
+      pointer-events: none;
+    }
+
+    .season-tag {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: #2dc653;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 18px;
+      color: #f5c518;
+      text-shadow: 2px 2px 0 #000, 0 0 20px rgba(245, 197, 24, 0.3);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .fish-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      animation: bob 2.5s ease-in-out infinite;
+    }
+
+    .message {
+      font-size: 24px;
+      color: #8899aa;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      max-width: 300px;
+    }
+
+    .message strong {
+      color: #eaf2f8;
+    }
+
+    .alert {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 9px;
+      color: #e94560;
+      background: rgba(233, 69, 96, 0.1);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin: 20px 0 32px;
+      letter-spacing: 1px;
+    }
+
+    .shop-btn {
+      padding: 16px 32px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 11px;
+      color: #fff;
+      background: linear-gradient(180deg, #2dc653, #1a8a3a);
+      border: 2px solid #4ade80;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #0f6028;
+      transition: all 0.1s;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .shop-btn:hover {
+      background: linear-gradient(180deg, #4ade80, #2dc653);
+    }
+
+    .shop-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0f6028;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="season-tag">SPRING IS COMING</div>
+    <h1>QuickRiver</h1>
+    <div class="fish-icon">🐟</div>
+    <p class="message">Hey there, angler! <strong>Looks like you're out of bait.</strong></p>
+    <p class="message">You'll need to restock before you can cast again.</p>
+    <div class="alert">0 BAIT REMAINING</div>
+    <a href="index.html" class="shop-btn">VISIT TACKLE SHOP</a>
+  </div>
+</body>
+</html>
