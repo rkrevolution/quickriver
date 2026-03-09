@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Head -->
+  <ellipse cx="40" cy="28" rx="14" ry="18" fill="#c77dba"/>
+  <ellipse cx="40" cy="28" rx="14" ry="18" fill="url(#squidGrad)"/>
+  <defs>
+    <linearGradient id="squidGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9a0d0"/>
+      <stop offset="100%" stop-color="#9b59b6"/>
+    </linearGradient>
+  </defs>
+  <!-- Eyes -->
+  <ellipse cx="34" cy="24" rx="4" ry="5" fill="#fff"/>
+  <ellipse cx="46" cy="24" rx="4" ry="5" fill="#fff"/>
+  <circle cx="35" cy="25" r="2" fill="#1a1a2e"/>
+  <circle cx="47" cy="25" r="2" fill="#1a1a2e"/>
+  <!-- Tentacles -->
+  <path d="M30,44 Q28,55 24,65" stroke="#9b59b6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M34,45 Q30,58 28,68" stroke="#a86cb8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M38,46 Q36,60 34,70" stroke="#9b59b6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M42,46 Q44,60 46,70" stroke="#a86cb8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M46,45 Q50,58 52,68" stroke="#9b59b6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M50,44 Q52,55 56,65" stroke="#a86cb8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Spots -->
+  <circle cx="34" cy="34" r="2" fill="#d9a0d0" opacity="0.5"/>
+  <circle cx="46" cy="32" r="1.5" fill="#d9a0d0" opacity="0.5"/>
+  <circle cx="40" cy="38" r="1.5" fill="#d9a0d0" opacity="0.4"/>
+</svg>

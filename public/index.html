@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Tackle Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+
+    <!-- Header -->
+    <header class="shop-header">
+      <h1>The Tackle Shop</h1>
+    </header>
+
+    <!-- Category Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="bait">BAIT</button>
+      <button class="tab" data-tab="gear">GEAR</button>
+      <button class="tab" data-tab="powerups">POWER-UPS</button>
+    </nav>
+
+    <!-- Shop Panel (one tab visible at a time) -->
+    <section class="shop-panel">
+
+      <!-- BAIT Tab -->
+      <div class="tab-content active" id="tab-bait">
+        <div class="product-row" data-fsc-item-path="guppies-6-pack">
+          <img src="images/guppies.svg" alt="Guppies" class="product-thumb"
+               data-fsc-item-path="guppies-6-pack" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="guppies-6-pack" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="guppies-6-pack" data-fsc-item-description-summary>###</span>
+            <span class="price" data-fsc-item-path="guppies-6-pack" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <select data-fsc-item-path-value="guppies-6-pack" data-fsc-item-quantity-value class="qty-select">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option>
+            </select>
+            <button data-fsc-item-path-value="guppies-6-pack" data-fsc-action="Add" class="add-btn">+</button>
+          </div>
+        </div>
+
+        <div class="product-row" data-fsc-item-path="squid-bait">
+          <img src="images/squid.svg" alt="Squid" class="product-thumb"
+               data-fsc-item-path="squid-bait" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="squid-bait" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="squid-bait" data-fsc-item-description-summary>###</span>
+            <span class="price" data-fsc-item-path="squid-bait" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <select data-fsc-item-path-value="squid-bait" data-fsc-item-quantity-value class="qty-select">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option>
+            </select>
+            <button data-fsc-item-path-value="squid-bait" data-fsc-action="Add" class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GEAR Tab -->
+      <div class="tab-content" id="tab-gear">
+        <div class="product-row" data-fsc-item-path="fishing-rod">
+          <img src="images/rod.svg" alt="Rod" class="product-thumb"
+               data-fsc-item-path="fishing-rod" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="fishing-rod" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="fishing-rod" data-fsc-item-description-summary>###</span>
+            <span class="price" data-fsc-item-path="fishing-rod" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <button data-fsc-item-path-value="fishing-rod" data-fsc-action="Add" class="add-btn">+</button>
+          </div>
+        </div>
+
+        <div class="product-row" data-fsc-item-path="fishing-line">
+          <img src="images/line.svg" alt="Line" class="product-thumb"
+               data-fsc-item-path="fishing-line" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="fishing-line" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="fishing-line" data-fsc-item-description-summary>###</span>
+            <span class="price" data-fsc-item-path="fishing-line" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <button data-fsc-item-path-value="fishing-line" data-fsc-action="Add" class="add-btn">+</button>
+          </div>
+        </div>
+
+        <div class="product-row" data-fsc-item-path="sun-hat">
+          <img src="images/sunhat.svg" alt="Hat" class="product-thumb"
+               data-fsc-item-path="sun-hat" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="sun-hat" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="sun-hat" data-fsc-item-description-summary>###</span>
+            <span class="price" data-fsc-item-path="sun-hat" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <button data-fsc-item-path-value="sun-hat" data-fsc-action="Add" class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- POWER-UPS Tab -->
+      <div class="tab-content" id="tab-powerups">
+        <div class="product-row sub-row" data-fsc-item-path="gatorade-subscription">
+          <img src="images/gatorade.svg" alt="Gatorade" class="product-thumb"
+               data-fsc-item-path="gatorade-subscription" data-fsc-item-image>
+          <div class="product-info">
+            <span class="product-name" data-fsc-item-path="gatorade-subscription" data-fsc-item-display>###</span>
+            <span class="product-desc" data-fsc-item-path="gatorade-subscription" data-fsc-item-description-summary>###</span>
+            <span class="sub-tag">MONTHLY</span>
+            <span class="price" data-fsc-item-path="gatorade-subscription" data-fsc-item-price>###</span>
+          </div>
+          <div class="product-actions">
+            <button data-fsc-item-path-value="gatorade-subscription" data-fsc-action="Add" class="add-btn sub-add">+</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Cart Summary (always visible) -->
+    <section class="cart-summary">
+      <div class="cart-header">
+        <span class="cart-title">TACKLE BOX</span>
+        <button data-fsc-action="Reset" class="reset-btn">EMPTY</button>
+      </div>
+      <div class="cart-contents" id="cart-contents">
+        <p class="cart-empty">Empty - add some gear!</p>
+      </div>
+      <div class="cart-footer-row">
+        <div class="cart-totals">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-value" data-fsc-order-total>###</span>
+        </div>
+        <div class="promo-row">
+          <input type="text" data-fsc-promocode-value placeholder="Promo" class="promo-input">
+          <button data-fsc-action="Promocode" class="promo-btn">OK</button>
+        </div>
+        <button data-fsc-action="Checkout" class="checkout-btn">CHECKOUT</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FastSpring Store Builder Library -->
+  <!-- TODO: Replace data-storefront with your actual FastSpring storefront URL -->
+  <script
+    id="fsc-api"
+    src="https://sbl.onfastspring.com/sbl/1.0.6/fastspring-builder.min.js"
+    type="text/javascript"
+    data-storefront="quickriver.test.onfastspring.com/popup-quickriver"
+    data-data-callback="dataCallback">
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>

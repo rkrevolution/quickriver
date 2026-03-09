@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Spool -->
+  <ellipse cx="40" cy="40" rx="25" ry="25" fill="#445" stroke="#556" stroke-width="2"/>
+  <ellipse cx="40" cy="40" rx="12" ry="12" fill="#334" stroke="#445" stroke-width="1"/>
+  <ellipse cx="40" cy="40" rx="5" ry="5" fill="#223"/>
+  <!-- Line wraps -->
+  <circle cx="40" cy="40" r="20" fill="none" stroke="#48cae4" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="40" cy="40" r="18" fill="none" stroke="#48cae4" stroke-width="0.5" opacity="0.5"/>
+  <circle cx="40" cy="40" r="16" fill="none" stroke="#48cae4" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="40" cy="40" r="22" fill="none" stroke="#48cae4" stroke-width="0.5" opacity="0.7"/>
+  <!-- Loose end -->
+  <path d="M62,30 Q70,25 72,35 Q74,45 68,50" stroke="#48cae4" stroke-width="1" fill="none"/>
+  <!-- Label -->
+  <text x="40" y="43" text-anchor="middle" font-size="6" fill="#8899aa" font-family="monospace">50lb</text>
+</svg>
