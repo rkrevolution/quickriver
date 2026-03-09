@@ -2,6 +2,10 @@
 // THE TACKLE SHOP - App Logic
 // ============================================
 
+var ALL_PRODUCTS = [
+  'guppy-6-pack', 'squid-bait', 'fishing-rod', 'fishing-line', 'sun-hat', 'gatorade-subscription'
+];
+
 // --- Tab Switching ---
 document.querySelectorAll('.tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
@@ -12,15 +16,39 @@ document.querySelectorAll('.tab').forEach(function(tab) {
   });
 });
 
-// --- FastSpring data callback ---
-function dataCallback(data) {
-  console.log('FastSpring data:', data);
-  renderCart(data);
+// --- Populate product display from SBL data ---
+function populateProducts(data) {
+  if (!data || !data.groups) return;
+  data.groups.forEach(function(group) {
+    if (!group.items) return;
+    group.items.forEach(function(item) {
+      var path = item.path;
+      // Display name
+      document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-display]').forEach(function(el) {
+        if (item.display) el.textContent = item.display;
+      });
+      // Price
+      document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-price]').forEach(function(el) {
+        if (item.price) el.textContent = item.price;
+      });
+      // Description summary
+      document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-description-summary]').forEach(function(el) {
+        if (item.description && item.description.summary) el.textContent = item.description.summary;
+      });
+      // Image
+      document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-image]').forEach(function(el) {
+        if (item.image) el.src = item.image;
+      });
+    });
+  });
 }
-window.dataCallback = dataCallback;
 
 // --- Render on-page cart ---
+window.renderCart = renderCart;
 function renderCart(data) {
+  // Populate product info on every callback
+  populateProducts(data);
+
   var container = document.getElementById('cart-contents');
   if (!container) return;
 
@@ -58,3 +86,16 @@ function escapeHtml(str) {
   div.textContent = str;
   return div.innerHTML;
 }
+
+// --- Preload: add all products then immediately remove them ---
+// This forces SBL to fetch product data so we can populate the UI
+function preloadAllProducts() {
+  if (typeof fastspring === 'undefined' || !fastspring.builder || !fastspring.builder.push) {
+    setTimeout(preloadAllProducts, 300);
+    return;
+  }
+  // Add all products at once via push
+  var session = { items: ALL_PRODUCTS.map(function(p) { return { product: p, quantity: 1 }; }) };
+  fastspring.builder.push(session);
+}
+preloadAllProducts();
