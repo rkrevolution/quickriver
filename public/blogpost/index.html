@@ -46,6 +46,39 @@
       margin: 0 auto;
     }
 
+    .byline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .byline-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .byline-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .byline-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .byline-role {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
     .content {
       max-width: 680px;
       margin: 0 auto;
@@ -198,6 +231,13 @@
     <div class="tag">fsBuilds</div>
     <h1>The Tackle Shop: Embedded Checkout for Game Publishers</h1>
     <p class="subtitle">How FastSpring's SBL and Embedded Checkout help game publishers monetize directly, no backend required.</p>
+    <div class="byline">
+      <img src="https://images.squarespace-cdn.com/content/v1/59b2d128ccc5c5736a1f948d/bebd8dc6-9d71-43dc-8f1a-eb9b652e89a0/DSC_9115.jpg?format=1500w" alt="Rob Kleiman" class="byline-photo">
+      <div class="byline-text">
+        <span class="byline-name">Rob Kleiman</span>
+        <span class="byline-role">Technical PMM Candidate</span>
+      </div>
+    </div>
   </div>
 
   <div class="content">
