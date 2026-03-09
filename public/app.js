@@ -16,9 +16,50 @@ document.querySelectorAll('.tab').forEach(function(tab) {
   });
 });
 
-// --- Render on-page cart from SBL data callback ---
+// --- Product data cache ---
+var _productCache = {};
+
+function cacheProducts(data) {
+  if (!data || !data.groups) return;
+  data.groups.forEach(function(group) {
+    if (!group.items) return;
+    group.items.forEach(function(item) {
+      if (item.path && item.display) {
+        _productCache[item.path] = {
+          display: item.display,
+          price: item.price,
+          description: item.description,
+          image: item.image
+        };
+      }
+    });
+  });
+}
+
+function applyProductCache() {
+  Object.keys(_productCache).forEach(function(path) {
+    var item = _productCache[path];
+    document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-display]').forEach(function(el) {
+      if (item.display) el.textContent = item.display;
+    });
+    document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-price]').forEach(function(el) {
+      if (item.price) el.textContent = item.price;
+    });
+    document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-description-summary]').forEach(function(el) {
+      if (item.description && item.description.summary) el.textContent = item.description.summary;
+    });
+    document.querySelectorAll('[data-fsc-item-path="' + path + '"][data-fsc-item-image]').forEach(function(el) {
+      if (item.image) el.src = item.image;
+    });
+  });
+}
+
+// --- Render on-page cart ---
 window.renderCart = renderCart;
 function renderCart(data) {
+  cacheProducts(data);
+  applyProductCache();
+
   var container = document.getElementById('cart-contents');
   if (!container) return;
 
@@ -57,13 +98,37 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// --- Preload: add all products so SBL populates display info ---
+// --- Checkout view toggle ---
+document.getElementById('checkout-btn').addEventListener('click', function() {
+  document.querySelector('.shop-header').style.display = 'none';
+  document.querySelector('.tabs').style.display = 'none';
+  document.querySelector('.shop-panel').style.display = 'none';
+  document.getElementById('shop-view-cart').style.display = 'none';
+  document.getElementById('checkout-view').classList.add('active');
+  if (typeof fastspring !== 'undefined' && fastspring.builder) {
+    fastspring.builder.checkout();
+  }
+});
+
+document.getElementById('back-to-shop').addEventListener('click', function() {
+  document.getElementById('checkout-view').classList.remove('active');
+  document.querySelector('.shop-header').style.display = '';
+  document.querySelector('.tabs').style.display = '';
+  document.querySelector('.shop-panel').style.display = '';
+  document.getElementById('shop-view-cart').style.display = '';
+});
+
+// --- Preload all products, then reset cart ---
 function preloadAllProducts() {
   if (typeof fastspring === 'undefined' || !fastspring.builder || !fastspring.builder.push) {
     setTimeout(preloadAllProducts, 300);
     return;
   }
-  var session = { items: ALL_PRODUCTS.map(function(p) { return { product: p, quantity: 1 }; }) };
+  var session = { products: ALL_PRODUCTS.map(function(p) { return { path: p, quantity: 1 }; }) };
   fastspring.builder.push(session);
+  setTimeout(function() {
+    fastspring.builder.reset();
+    setTimeout(applyProductCache, 500);
+  }, 2000);
 }
 preloadAllProducts();
