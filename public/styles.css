@@ -65,6 +65,17 @@ body {
   text-shadow: 2px 2px 0 #000, 0 0 10px rgba(245, 197, 24, 0.3);
 }
 
+.currency-select {
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  padding: 4px 8px;
+  background: var(--wood-dark);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* ---- TABS ---- */
 .tabs {
   display: flex;
@@ -96,6 +107,18 @@ body {
   color: var(--gold);
   border-bottom-color: var(--gold);
   background: rgba(245, 197, 24, 0.05);
+}
+
+.tab[data-tab="powerups"] {
+  color: var(--water);
+  background: rgba(0, 180, 216, 0.08);
+  border-bottom-color: var(--water);
+}
+
+.tab[data-tab="powerups"].active {
+  color: var(--gold);
+  background: rgba(245, 197, 24, 0.1);
+  border-bottom-color: var(--gold);
 }
 
 /* ---- SHOP PANEL ---- */
@@ -407,7 +430,15 @@ body {
   cursor: pointer;
 }
 
+.cart-checkout-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 10px;
+}
+
 .checkout-btn {
+  flex: 1;
   padding: 10px 16px;
   font-family: 'Press Start 2P', cursive;
   font-size: 8px;

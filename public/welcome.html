@@ -9,7 +9,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #0d0d1a;
+      background: #0a1628;
       color: #eaf2f8;
       font-family: 'VT323', monospace;
       height: 100vh;
@@ -23,21 +23,33 @@
     .screen {
       width: 390px;
       height: min(720px, calc(100vh - 40px));
-      background: linear-gradient(180deg, #0a1628 0%, #16213e 40%, #0077b6 100%);
+      background: linear-gradient(180deg, #0f2744 0%, #1a4a7a 35%, #2a7ab0 70%, #48b4d8 100%);
       border-radius: 20px;
-      border: 3px solid #333;
+      border: 3px solid #4a9cc8;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 32px 28px;
-      box-shadow: 0 0 40px rgba(0, 180, 216, 0.15), 0 0 80px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 40px rgba(72, 180, 216, 0.25), 0 0 80px rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
     }
 
-    /* Water shimmer at bottom */
+    /* Sunlight shimmer at top */
+    .screen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(180deg, rgba(245, 220, 100, 0.15), transparent);
+      pointer-events: none;
+    }
+
+    /* Water sparkle at bottom */
     .screen::after {
       content: '';
       position: absolute;
@@ -45,56 +57,69 @@
       left: 0;
       right: 0;
       height: 120px;
-      background: linear-gradient(180deg, transparent, rgba(0, 180, 216, 0.1));
+      background: linear-gradient(180deg, transparent, rgba(125, 216, 240, 0.2));
       pointer-events: none;
     }
 
     .season-tag {
       font-family: 'Press Start 2P', cursive;
-      font-size: 8px;
-      color: #2dc653;
+      font-size: 9px;
+      color: #ffe066;
       letter-spacing: 3px;
       margin-bottom: 16px;
-      opacity: 0.8;
+      text-shadow: 0 0 10px rgba(255, 224, 102, 0.4);
     }
 
     h1 {
       font-family: 'Press Start 2P', cursive;
       font-size: 18px;
-      color: #f5c518;
-      text-shadow: 2px 2px 0 #000, 0 0 20px rgba(245, 197, 24, 0.3);
+      color: #fff;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.3), 0 0 20px rgba(72, 180, 216, 0.4);
       margin-bottom: 32px;
       line-height: 1.5;
     }
 
     .fish-icon {
-      font-size: 64px;
-      margin-bottom: 24px;
+      font-size: 72px;
+      margin-bottom: 28px;
       animation: bob 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
     }
 
     .message {
-      font-size: 24px;
-      color: #8899aa;
+      font-size: 30px;
+      color: #fff;
       line-height: 1.5;
       margin-bottom: 12px;
-      max-width: 300px;
+      max-width: 320px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     .message strong {
-      color: #eaf2f8;
+      color: #ffe066;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 224, 102, 0.3);
+    }
+
+    .message-sub {
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      max-width: 320px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     .alert {
       font-family: 'Press Start 2P', cursive;
-      font-size: 9px;
-      color: #e94560;
-      background: rgba(233, 69, 96, 0.1);
-      border: 1px solid rgba(233, 69, 96, 0.3);
+      font-size: 10px;
+      color: #fff;
+      background: rgba(233, 69, 96, 0.6);
+      border: 2px solid #e94560;
       border-radius: 6px;
-      padding: 10px 16px;
+      padding: 12px 20px;
       margin: 20px 0 32px;
       letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     }
 
     .shop-btn {
@@ -106,7 +131,7 @@
       border: 2px solid #4ade80;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 0 #0f6028;
+      box-shadow: 0 4px 0 #0f6028, 0 0 20px rgba(45, 198, 83, 0.3);
       transition: all 0.1s;
       text-decoration: none;
       display: inline-block;
@@ -116,6 +141,7 @@
 
     .shop-btn:hover {
       background: linear-gradient(180deg, #4ade80, #2dc653);
+      box-shadow: 0 4px 0 #0f6028, 0 0 30px rgba(45, 198, 83, 0.5);
     }
 
     .shop-btn:active {
@@ -131,11 +157,11 @@
 </head>
 <body>
   <div class="screen">
-    <div class="season-tag">SPRING IS COMING</div>
+    <div class="season-tag">SPRING IS HERE</div>
     <h1>QuickRiver</h1>
     <div class="fish-icon">🐟</div>
-    <p class="message">Hey there, angler! <strong>Looks like you're out of bait.</strong></p>
-    <p class="message">You'll need to restock before you can cast again.</p>
+    <p class="message">Hey there, angler! <strong>Time to restock!</strong></p>
+    <p class="message-sub">Grab some fresh bait and gear up for the season.</p>
     <div class="alert">0 BAIT REMAINING</div>
     <a href="index.html" class="shop-btn">VISIT TACKLE SHOP</a>
   </div>
