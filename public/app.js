@@ -9,7 +9,7 @@ var ALL_PRODUCTS = [
 ];
 
 // --- Tab Switching ---
-// Simple tab navigation — toggles active class on tabs and content panels.
+// Simple tab navigation -toggles active class on tabs and content panels.
 document.querySelectorAll('.tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
@@ -104,7 +104,7 @@ function renderCart(data) {
     return;
   }
 
-  // Build cart HTML — each item gets a Remove button using
+  // Build cart HTML -each item gets a Remove button using
   // data-fsc-action="Remove" so SBL handles the removal.
   var html = '';
   items.forEach(function(item) {
@@ -143,7 +143,7 @@ document.getElementById('checkout-btn').addEventListener('click', function() {
   }
 });
 
-// Back button — restores the shop view and hides checkout
+// Back button -restores the shop view and hides checkout
 document.getElementById('back-to-shop').addEventListener('click', function() {
   document.getElementById('checkout-view').classList.remove('active');
   document.querySelector('.shop-header').style.display = '';
@@ -174,13 +174,13 @@ document.getElementById('currency-select').addEventListener('change', function()
 // Solution:
 // 1. Wait for SBL to initialize
 // 2. Push all products into the session (fastspring.builder.push)
-//    — this triggers data-callback with full product data
+//    -this triggers data-callback with full product data
 // 3. Cache that data via cacheProducts()
 // 4. Reset the cart (fastspring.builder.reset) so user starts clean
 // 5. Re-apply cached data to the DOM (applyProductCache)
 //
 // Result: every product shows live name, price, description,
-// and image — even before the customer adds anything to the cart.
+// and image -even before the customer adds anything to the cart.
 // ============================================
 function preloadAllProducts() {
   if (typeof fastspring === 'undefined' || !fastspring.builder || !fastspring.builder.push) {

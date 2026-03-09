@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Mobile game phone frame — 390x720 fixed container -->
+  <!-- Mobile game phone frame -390x720 fixed container -->
   <div class="game-container">
 
     <header class="shop-header">
@@ -25,7 +25,7 @@
     <section class="shop-panel">
 
       <!-- ==========================================
-           BAIT Tab — One-time purchase products
+           BAIT Tab -One-time purchase products
            Each product uses SBL directives to pull
            live data from FastSpring:
              data-fsc-item-path    → links to product ID
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <!-- GEAR Tab — One-time purchase products -->
+      <!-- GEAR Tab -One-time purchase products -->
       <div class="tab-content" id="tab-gear">
         <div class="product-row" data-fsc-item-path="fishing-rod">
           <img src="images/rod.svg" alt="Rod" class="product-thumb"
@@ -102,9 +102,9 @@
       </div>
 
       <!-- ==========================================
-           POWER-UPS Tab — Subscription products
+           POWER-UPS Tab -Subscription products
            Same SBL directives as one-time products.
-           FastSpring handles the subscription logic —
+           FastSpring handles the subscription logic -
            no separate code needed for recurring billing.
            ========================================== -->
       <div class="tab-content" id="tab-powerups">
@@ -140,7 +140,7 @@
     </section>
 
     <!-- ==========================================
-         CART — "Tackle Box"
+         CART -"Tackle Box"
          SBL actions handle all cart logic:
            data-fsc-action="Reset"     → empties cart
            data-fsc-order-total        → live cart total
@@ -165,7 +165,7 @@
           <button data-fsc-action="Promocode" class="promo-btn">OK</button>
         </div>
       </div>
-      <!-- Currency switcher — calls fastspring.builder.country()
+      <!-- Currency switcher -calls fastspring.builder.country()
            to override geolocation and update all prices on the page.
            FastSpring handles currency automatically by IP, but this
            gives users manual control. -->
