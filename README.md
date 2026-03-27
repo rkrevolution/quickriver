@@ -2,6 +2,8 @@
 
 A proof-of-concept fishing game storefront demonstrating FastSpring's embedded checkout and Store Builder Library (SBL) for mobile app and game publishers.
 
+https://github.com/user-attachments/assets/2a5884c5-7d67-40ce-93f2-a57dc22094c7
+
 **[Live Demo](https://rkrevolution.github.io/quickriver/)** | **[Blog Post](https://rkrevolution.github.io/quickriver/blogpost/)** | **[Video Walkthrough](https://www.youtube.com/watch?v=Z8PqM-4SsSY&t=77s)**
 
 ![The Tackle Shop](public/images/screenshot-shop.png)
